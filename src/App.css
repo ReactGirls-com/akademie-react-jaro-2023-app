@@ -1,83 +1,68 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
+/* Apply to the body element */
 body {
-  background-color: #F5F5F5;
-  background-image: linear-gradient(to bottom, #FFDAB9, #87CEFA);
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-family: "Poppins", sans-serif;
-}
-
-p {
-  border-radius: 10px;
-  padding: 10px;
-  margin: 10px;
-  font-size: 16px;
-  background-color: #F0E68C;
-  color: #333;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  font-size: 3rem;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-input {
-  width: 100%;
-  padding: 0.5rem;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 5px;
-  margin-top: 1.5rem;
-  box-shadow: 0px 0px 5px #ccc;
-}
-
-button {
-  background-color: #f08080;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 0.8rem 1rem;
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  cursor: pointer;
-  box-shadow: 0px 0px 5px #ccc;
-}
-
-button:hover {
-  background-color: #e66767;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-top: 3rem;
-  text-align: center;
-}
-
-p {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  text-align: center;
-}
-
-ul {
-  margin-top: 1rem;
-  list-style-type: none;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #1a1a1a, #2b2b2b);
+  color: #ccc;
+  line-height: 1.5;
+  margin: 0;
   padding: 0;
 }
 
-li {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-  background-color: #f0e68c;
-  padding: 0.5rem;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px #ccc;
-  max-width: 750px;
-  overflow: auto;
+/* Apply to all headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color:rgb(235, 225, 225)
+}
+
+/* Apply to all text inputs */
+input[type="text"], textarea {
+  font-family: "Roboto Mono", monospace;
+  background-color: #ccc;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+/* Apply to all buttons */
+button {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #0062cc;
+}
+
+/* Apply to all paragraphs */
+p {
+  margin-top: 1rem;
+  width: 80%;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 

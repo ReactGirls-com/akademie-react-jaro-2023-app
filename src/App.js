@@ -1,9 +1,9 @@
 import React from "react";
-import OpenAI from "./OpenAI";
+import ExplainCode from "./ExplainCode";
 import "./App.css";
 
 function App() {
-  return <OpenAI />;
+  return <ExplainCode />;
 }
 
 export default App;
