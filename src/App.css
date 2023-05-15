@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Apply to all text inputs */
-input[type="text"], textarea {
+input, textarea {
   font-family: "Roboto Mono", monospace;
   background-color: #ccc;
   font-size: 18px;

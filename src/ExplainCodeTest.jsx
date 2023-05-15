@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-// const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 const API_KEY = "";
 
-const ExplainCode = () => {
+const ExplainCodeTest = () => {
   const [code, setCode] = useState("");
-  const [explanation, setExplanation] = useState("");
-  const [error, setError] = useState("");
-  const [emptyInput, setEmptyInput] = useState(false);
 
   const handleCallOpenAIAPI = async () => {
     fetch("https://api.openai.com/v1/completions", {
@@ -30,18 +26,10 @@ const ExplainCode = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setExplanation(data.choices[0].text);
       })
       .catch((error) => {
-        setError(error.message);
+        console.log(error);
       });
-  };
-
-  const handleNoInput = () => {
-    setEmptyInput(true);
-    setTimeout(() => {
-      setEmptyInput(false);
-    }, 3000);
   };
 
   return (
@@ -55,14 +43,9 @@ const ExplainCode = () => {
         onChange={(event) => setCode(event.target.value)}
       />
 
-      <button onClick={code !== "" ? handleCallOpenAIAPI : handleNoInput}>
-        Explain
-      </button>
-      {explanation !== "" ? <p>{explanation}</p> : null}
-      {error !== "" ? <p>Error fetching</p> : null}
-      {emptyInput ? <p>Please enter some code</p> : null}
+      <button onClick={handleCallOpenAIAPI}>Explain</button>
     </div>
   );
 };
 
-export default ExplainCode;
+export default ExplainCodeTest;

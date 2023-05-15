@@ -1,9 +1,9 @@
 import React from "react";
-import ExplainCode from "./ExplainCode";
+import ExplainCodeTest from "./ExplainCodeTest";
 import "./App.css";
 
 function App() {
-  return <ExplainCode />;
+  return <ExplainCodeTest />;
 }
 
 export default App;
