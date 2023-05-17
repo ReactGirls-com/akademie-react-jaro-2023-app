@@ -7,9 +7,11 @@ const ExplainCode = () => {
   const [code, setCode] = useState("");
   const [explanation, setExplanation] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const [emptyInput, setEmptyInput] = useState(false);
 
   const handleCallOpenAIAPI = async () => {
+    setLoading(true);
     fetch("https://api.openai.com/v1/completions", {
       method: "POST",
       headers: {
@@ -27,14 +29,20 @@ const ExplainCode = () => {
         stop: ['"""'],
       }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error fetching");
+        }
+        return response.json();
+      })
       .then((data) => {
         console.log(data);
         setExplanation(data.choices[0].text);
       })
       .catch((error) => {
-        setError(error.message);
-      });
+        setError(error);
+      })
+      .finally(() => setLoading(false));
   };
 
   const handleNoInput = () => {
@@ -59,8 +67,9 @@ const ExplainCode = () => {
         Explain
       </button>
       {explanation !== "" ? <p>{explanation}</p> : null}
-      {error !== "" ? <p>Error fetching</p> : null}
+      {error ? <p>{error.message}</p> : null}
       {emptyInput ? <p>Please enter some code</p> : null}
+      {loading ? <p>Loading...</p> : null}
     </div>
   );
 };
